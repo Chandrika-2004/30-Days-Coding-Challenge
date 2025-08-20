@@ -1,0 +1,30 @@
+Q : Given two integers num1 and num2, return the sum of the two integers.
+
+Sol :
+
+C++
+
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return num1+num2;
+    }
+};
+
+
+Python
+
+class Solution:
+    def sum(self, num1: int, num2: int) -> int:
+        return num1+num2
+
+
+
+Java
+
+class Solution {
+    public int sum(int num1, int num2) {
+        return num1+num2;
+    }
+}
+
