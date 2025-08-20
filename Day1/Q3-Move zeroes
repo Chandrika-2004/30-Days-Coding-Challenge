@@ -1,0 +1,58 @@
+Q : Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+Note that you must do this in-place without making a copy of the array.
+
+Sol:
+Two pointer approach:
+
+Python:
+
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        n = len(nums)
+        left = 0
+        for r in range(n):
+            if nums[r] != 0:
+                nums[left], nums[r] = nums[r], nums[left]
+                left += 1
+
+
+Java:
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n = nums.length;
+        int left = 0;
+        for(int right=0;right<n;right++) {
+            if(nums[right]!=0) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left ++;
+            }
+           
+        }
+    }
+}
+
+
+
+C++:
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        int left = 0;
+        for(int right=0;right<n;right++) {
+            if(nums[right]!=0) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left ++;
+            }
+           
+        }
+    }
+};
+
+
