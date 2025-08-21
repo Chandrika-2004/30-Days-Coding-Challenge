@@ -1,0 +1,33 @@
+Q : Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Sol :
+
+Using map:
+C++ :
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        int n = nums.size();
+        map<int,int>mp;
+        for(int i=0;i<n;i++) {
+            mp[nums[i]]++;
+            if(mp[nums[i]] == 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+
+
+Python : Using sorting
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i] == nums[i+1]:
+                return True
+        return False        
