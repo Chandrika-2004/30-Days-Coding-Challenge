@@ -1,0 +1,17 @@
+Q : Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
+The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2).
+You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+
+Sol :
+
+class Solution:
+    def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
+        liste =  []   
+        for i in points :   
+            liste.append([math.sqrt(i[0]**2 +  i[1]**2) , i])  
+        
+        sorted_liste =  sorted(liste , key=lambda item  : item[0])   
+        result =  []   
+        for i in  range (k)  :   
+            result.append(sorted_liste[i][1])   
+        return  result     
