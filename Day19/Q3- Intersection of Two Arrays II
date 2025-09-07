@@ -1,0 +1,19 @@
+Q: Given two integer arrays nums1 and nums2, return an array of their intersection.
+Each element in the result must appear as many times as it shows in both arrays and you may return the result in any order.
+
+
+Sol :
+
+from collections import Counter
+
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        counts = Counter(nums1)
+        result = []
+
+        for num in nums2:
+            if counts[num] > 0:
+                result.append(num)
+                counts[num] -= 1
+
+        return result
