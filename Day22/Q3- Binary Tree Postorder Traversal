@@ -1,0 +1,20 @@
+Q :  Given the root of a binary tree, return the postorder traversal of its nodes' values.
+
+Sol :
+
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>result;
+        post(root, result);
+        return result; 
+    }
+
+    void post(TreeNode* root, vector<int>& result) {
+        if(root != NULL) {
+            post(root->left, result);
+            post(root->right, result);
+            result.push_back(root->val);
+        }
+    }
+};
