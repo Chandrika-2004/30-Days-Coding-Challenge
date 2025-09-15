@@ -1,0 +1,35 @@
+Q : The task is to determine if a given undirected graph with n nodes and a list of edges forms a valid tree. 
+
+A valid tree must satisfy three conditions:
+Connected: All nodes must be reachable from any other node.
+Acyclic: The graph must not contain any cycles.
+Edge Count: For n nodes, a tree must have exactly n - 1 edges.
+
+Sol :
+
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        parent = list(range(n))
+
+        def find(x):
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
+
+        def union(x, y):
+            rootX = find(x)
+            rootY = find(y)
+            if rootX == rootY:
+                return False
+            parent[rootX] = rootY
+            return True
+
+        for x, y in edges:
+            if not union(x, y):
+                return False
+
+        return True
+
